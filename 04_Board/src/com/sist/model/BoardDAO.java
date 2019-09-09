@@ -180,4 +180,108 @@ public class BoardDAO {
 		}
 		return result;
 	}
+	
+	// 게시물을 검색하는 메서드
+	public ArrayList<BoardDTO> searchBoard(String find_field, String find_name){
+		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		
+		if(find_field.equals("1")){ // 1,2,3,4 중 1을 선택하여 제목으로 검색한 경우
+			try {
+				sql = "select * from board where board_title like ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%"+find_name+"%");
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					BoardDTO dto = new BoardDTO();
+					dto.setBoard_no(rs.getInt("board_no"));
+					dto.setBoard_writer(rs.getString("board_writer"));
+					dto.setBoard_title(rs.getString("board_title"));
+					dto.setBoard_cont(rs.getString("board_cont"));
+					dto.setBoard_pwd(rs.getString("board_pwd"));
+					dto.setBoard_hit(rs.getInt("board_hit"));
+					dto.setBoard_regdate(rs.getString("board_regdate"));				
+					list.add(dto); // DTO에 저장된 데이터를 ArrayList에 원소로 추가
+				}
+				// open 객체 닫기
+				rs.close(); pstmt.close(); con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if(find_field.equals("2")) { // 2를 선택하여 내용으로 검색한 경우
+			try {
+				sql = "select * from board where board_cont like ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%"+find_name+"%");
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					BoardDTO dto = new BoardDTO();
+					dto.setBoard_no(rs.getInt("board_no"));
+					dto.setBoard_writer(rs.getString("board_writer"));
+					dto.setBoard_title(rs.getString("board_title"));
+					dto.setBoard_cont(rs.getString("board_cont"));
+					dto.setBoard_pwd(rs.getString("board_pwd"));
+					dto.setBoard_hit(rs.getInt("board_hit"));
+					dto.setBoard_regdate(rs.getString("board_regdate"));				
+					list.add(dto); // DTO에 저장된 데이터를 ArrayList에 원소로 추가
+				}
+				// open 객체 닫기
+				rs.close(); pstmt.close(); con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if(find_field.equals("3")) { // 3을 선택하여 제목+내용으로 검색 한 경우
+			try {
+				sql = "select * from board where board_title like ? or board_cont like ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%"+find_name+"%");
+				pstmt.setString(2, "%"+find_name+"%");
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					BoardDTO dto = new BoardDTO();
+					dto.setBoard_no(rs.getInt("board_no"));
+					dto.setBoard_writer(rs.getString("board_writer"));
+					dto.setBoard_title(rs.getString("board_title"));
+					dto.setBoard_cont(rs.getString("board_cont"));
+					dto.setBoard_pwd(rs.getString("board_pwd"));
+					dto.setBoard_hit(rs.getInt("board_hit"));
+					dto.setBoard_regdate(rs.getString("board_regdate"));				
+					list.add(dto); // DTO에 저장된 데이터를 ArrayList에 원소로 추가
+				}
+				// open 객체 닫기
+				rs.close(); pstmt.close(); con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if(find_field.equals("4")) { // 4을 선택하여 작성자로 검색 한 경우
+			try {
+				sql = "select * from board where board_writer like ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%"+find_name+"%");
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					BoardDTO dto = new BoardDTO();
+					dto.setBoard_no(rs.getInt("board_no"));
+					dto.setBoard_writer(rs.getString("board_writer"));
+					dto.setBoard_title(rs.getString("board_title"));
+					dto.setBoard_cont(rs.getString("board_cont"));
+					dto.setBoard_pwd(rs.getString("board_pwd"));
+					dto.setBoard_hit(rs.getInt("board_hit"));
+					dto.setBoard_regdate(rs.getString("board_regdate"));				
+					list.add(dto); // DTO에 저장된 데이터를 ArrayList에 원소로 추가
+				}
+				// open 객체 닫기
+				rs.close(); pstmt.close(); con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	
+	
 }

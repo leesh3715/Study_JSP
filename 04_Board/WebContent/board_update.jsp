@@ -44,8 +44,10 @@
 						<%-- value="<%=dto.getBoard_pwd()%>"> --%>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="글 수정">&nbsp;&nbsp;&nbsp; <input type="reset"
+					<td colspan="2" align="center">
+					<input type="submit"
+						value="글 수정">&nbsp;&nbsp;&nbsp; 
+						<input type="reset"
 						value="취소"></td>
 				</tr>
 			</table>

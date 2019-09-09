@@ -29,11 +29,12 @@ public class D_Board extends HttpServlet {
 		int board_no = Integer.parseInt(request.getParameter("board_no"));
 		
 		BoardDAO dao = new BoardDAO();
-		int res = dao.deleteBoard(pwd,board_no);
+		int res = dao.deleteBoard(pwd, board_no);
 		
 		
 		PrintWriter out = response.getWriter(); // 웹 화면에 출력, 서블릿 
     	if(res > 0) { // delete문)이 성공한 경우
+    		
     		response.sendRedirect("select"); // https://doublesprogramming.tistory.com/63 redirect 참고
     		
     	} else if(res == -1) { // 게시글 번호가 없는 경우

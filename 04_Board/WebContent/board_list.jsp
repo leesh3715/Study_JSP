@@ -37,10 +37,9 @@ td{
 						BoardDTO dto = list.get(i); %>
 			<tr>
 				<td><%=dto.getBoard_no()%></td>
-				<td><a href="board_cont.jsp?no=<%=dto.getBoard_no()%>">
-					<%=dto.getBoard_title()%></a></td>
+				<td><a href="board_cont.jsp?no=<%=dto.getBoard_no()%>"> <%=dto.getBoard_title()%></a></td>
 				<td><%=dto.getBoard_hit()%></td>
-				<td><%=dto.getBoard_regdate().substring(0,10)%></td>
+				<td><%=dto.getBoard_regdate().substring(0,11)%></td>
 			</tr>
 			<% }
 				} else { // 데이터가 없는 경우
@@ -54,9 +53,22 @@ td{
 		</table>
 		<br>
 		<hr width="50%" color="pink">
-		<br><br>
-		<input type="button" value="글쓰기" onclick="location.href='board_write.jsp'">
-		
+		<br>
+		<br> 
+		<input type="button" value="글쓰기"
+			onclick="location.href='board_write.jsp'"> <br>
+		<br>
+
+		<form method="post" action="<%=request.getContextPath()%>/search">
+			<select name="find_field">
+				<option value="1">제목</option>
+				<option value="2">내용</option>
+				<option value="3">제목+내용</option>
+				<option value="4">작성자</option>
+			</select>
+			 <input type="text" name="find_name" size="15">
+			 <input type="submit" value="검색">
+		</form>
 	</div>
 </body>
 </html>
