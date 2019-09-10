@@ -15,6 +15,6 @@ start with 20190001
 increment by 1
 nocache;
 
-insert into student1 values(student_seq.nextval,'홍길동','hong','1111','010-1111-1111','경제학과',3,sysdate);
-insert into student1 values(student_seq.nextval,'이순신','lee','2222','010-2222-2222','해양학과',4,sysdate);
-insert into student1 values(student_seq.nextval,'유관순','yoo','3333','010-3333-3333','회계학과',1,sysdate);
+insert into student1 values(student1_seq.nextval,'홍길동','hong','1111','010-1111-1111','경제학과',3,sysdate);
+insert into student1 values(student1_seq.nextval,'이순신','lee','2222','010-2222-2222','해양학과',4,sysdate);
+insert into student1 values(student1_seq.nextval,'유관순','yoo','3333','010-3333-3333','회계학과',1,sysdate);
