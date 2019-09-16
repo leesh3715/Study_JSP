@@ -1,0 +1,142 @@
+@CHARSET "UTF-8";
+/* 헤더 영역의 div태그 관련 디자인 */
+#container{
+	width:1300px; /* 문서 전체 폭 지정 */
+	height: 2000px;
+	
+	margin: 0 auto; /* 여백 자동으로 */
+	background-color: #fff;
+	border: 1px solid #e8e2ae;
+}
+/* 바로 태그를 집어 넣어도 가능 함 */
+/* 머릿말 디자인  */
+ header{
+	height: 208px;
+	margin-top: 0px;
+	background-image: url("/images/bg.jpg");
+	background-repeat: no-repeat; /* 이미지 반복이 없음 */
+	background-position: top; /* 이미지 위치  */
+}
+
+/* 헤더영역의 hgroup 태그 관련 디자인  */
+header hgroup{
+	text-align: justify;
+	position: relative;
+	top: 60px; left: 200px;
+	}
+/* 헤더 영역의 주 제목 디자인  */
+header h1{
+	font-size: 2em; /* 현재 폰트 크기의 2배 크기 설정  */
+	color: #f2cb78;
+	font-style: bold;
+	text-shadow: 1px 2px 2px #000;
+}
+/* 헤더영역의 부 제목 디자인 */
+header h2{
+	font-size: 2em; /* 현재 폰트 크기의 2배 크기 설정  */
+	color: #804000;
+	font-style: bold;
+	text-shadow: 1px 2px 2px #000;
+
+}
+.mangoboard{
+	text-align: center;	
+}
+#login{
+	float: right;
+	margin: 20px 20px 0 0;
+	font-family: 맑은고딕, Arial;
+	font-size: 12px;
+	word-spacing:5px; /* 자간 설정  */
+	font-style: bold;
+	text-shadow: 1px 2px 2px #666;
+}
+/* login의 a태그 관련 디자인  */
+#login a{
+	text-decoration: none;
+	color: #333;
+}
+/* login의 a태그의 마우스오버 관련 디자인  */
+#login a:hover{
+	color: #f90;
+}
+
+/* 네비게이션 영역 디자인  */
+#nav{
+	font-style: bold;
+	background: #f3d70c;
+	margin-top: -15px;  /* 상단 여백: 음수값인 경우 위쪽으로 올라감 */
+	width: 1300px; height: 40px;	
+}
+/* 네비게이션 ul 태그 디자인  */
+#nav ul{
+	list-style: none; 
+	height: 40px;
+	padding-top: 10px;
+}
+#nav ul li{
+	float: left; /* 수직 메뉴를 수평 메뉴로 변경 */
+	font-size:17px;
+}
+
+/* 네비게이션에서 a 태그 디자인 영역 */
+#nav a{
+	padding:30px 120px 5px 130px;
+	color: #fff;
+	text-decoration: none;
+}
+/* 네비게이션에서 a 태그 방문 시 디자인 */
+#nav a:VISITED  {
+	color: #fff;
+}
+/* 마우스 오버, 마우스를 클릭 했을 때 , 포커스가 올라갔을 때 디자인 */
+#nav a:HOVER, #nav a:ACTIVE, #nav a:FOCUS {
+	text-shadow: 0px 2px 2px #000;
+	color: #FC0;
+}
+/* section 영역 디자인  */
+#content{
+	background-color: #fff;
+	padding-top: 5px; /* 상단 안쪽 여백 */
+	padding-left: 10px; /* 상단 왼쪽 여백 */
+	width: 720px; /* section 영역 폭 지정 */
+	float: left; /* 이후의 태그는 오른쪽 정렬 */
+}
+#content article p{
+	text-align: justify; /* 양쪽으로 균등하게 */
+}
+/* aside 영역 - 보조 내용 디자인 */
+#sidebar{
+	float: right;
+	width: 300px; height: 600px;
+	/* background-color: #e4da7e; */
+	padding-top:  20px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.loginDiv{
+	font-size: small;
+	height:130px;
+	text-align: center;
+	background-color: #eeeeee;
+}
+/* aside 영역 이미지 디자인 */
+#sidebar img{
+	border:1px solid #CCC;
+	opacity:1; /* 불투명도  - 원래 1 값이 원본 이미지의 투명도를 나타냄*/
+	text-align: center;
+}
+/* 이미지에 마우스가 올라갔을 때 디자인 */
+#sidebar img:HOVER {
+	border:1px solid #000;
+	opacity:0.5;
+}
+/* footer영역 디자인  */
+footer{
+	
+	padding: 5px 0; /* 상단,하단이 5px 좌우가 0 /// 5px 0 5px 0*/
+	clear:both;
+	background-color: #997000;
+	color:#fff;
+	text-align: center;
+}

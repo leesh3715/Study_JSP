@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link type="text/css" href="boot/bootstrap.css" rel="stylesheet">
+
+<!-- 부가적인 테마 -->
+<link type="text/css" href="boot/bootstrap-theme.css" rel="stylesheet">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="boot/bootstrap.js"></script>
+<style type="text/css">
+
+	 .img{
+        background-image: url(images/newyear.png);
+        width: 222px;
+        height: 130px;
+      }
+      
+      .bo{
+        border:1px solid red;
+      }
+	
+</style>
+</head>
+<body>
+	
+	<span>인라인요소</span>
+    <span class="text-primary show sr-only">인라인요소</span>
+    <span class="bg-danger">인라인요소</span> <!-- hidden 속성 추가해 볼 것. -->
+    <div class="img text-hide">2019년 새해 복 많이 받으세요</div>
+    <div class="col-xs-12 bg-info bo visible-xs">
+      	 디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 스마트폰 사이즈 기기에서만 보임</p>
+    </div>
+    <div class="col-xs-12 bg-danger bo visible-sm">
+      디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 타블렛 사이즈 기기에서만 보임</p>
+    </div>
+    <div class="col-xs-12 bg-warning bo visible-md">
+      디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 작은모니터 사이즈 기기에서만 보임</p>
+    </div>
+    <div class="col-xs-12 bg-primary bo visible-lg">
+      디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 큰 모니터 사이즈 기기에서만 보임</p>
+    </div>
+    <div class="col-xs-12 bg-info bo hidden-xs">
+      디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 스마트폰 사이즈 기기에서만 숨김</p>
+    </div>
+    <div class="col-xs-12 bg-danger bo hidden-sm">
+      디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 타블렛 사이즈 기기에서만 숨김</p>
+    </div>
+    <div class="col-xs-12 bg-warning bo hidden-md">
+      디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 작은모니터 사이즈 기기에서만 숨김</p>
+    </div>
+    <div class="col-xs-12 bg-primary bo hidden-lg">
+      디바이스 사이즈에서 보이고 숨기는 컨텐츠
+      <p>해당하는 요소는 큰 모니터 사이즈 기기에서만 숨김</p>
+    </div>
+	
+</body>
+</html>
+	

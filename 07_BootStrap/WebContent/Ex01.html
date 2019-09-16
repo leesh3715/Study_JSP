@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link type="text/css" href="boot/bootstrap.css" rel="stylesheet">
+
+<!-- 부가적인 테마 -->
+<link type="text/css" href="boot/bootstrap-theme.css" rel="stylesheet">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="boot/bootstrap.js"></script>
+<style>
+
+	* { padding: 0; margin: 0; }
+
+	body { background-color: pink; }
+	
+	#wrapper {
+		border: 1px solid gray;
+		width: 80%;
+		margin: 0 auto;   /* 가운데 정렬 */
+		font-size: 2vw;
+	}
+	
+	nav li {
+		list-style: none;
+		float: left;
+		border: 1px solid gray;
+		width: 20%;
+		box-sizing: border-box;
+		text-align: center;
+	}
+
+	nav ul {
+		overflow: hidden;
+	}
+	
+	header h2 {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	
+	header {
+		padding: 20px 0 0 0;
+		border: 1px solid gray;
+	}
+	
+	.content { padding: 10px; }
+	
+	footer {
+		border: 1px solid gray;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+	}
+	
+	@media (max-width: 767px) {
+		body {
+			background-color: purple;
+		}
+		
+		#wrapper {
+			width: 100%;
+			font-size: 2em;
+		}
+		
+		nav li {
+			width: 100%;
+		}
+	}
+	
+	@media (min-width: 768px) {
+		body {
+			background-color: orange;
+		}
+		
+		#wrapper {
+			width: 100%;
+		}
+	}
+	
+	@media (min-width: 992px) {
+		body {
+			background-color: lightblue;
+		}
+		
+		#wrapper {
+			width: 80%;
+		}
+	}
+	
+	@media (min-width: 1200px) {
+		body {
+			background-color: #4BF8B7;
+		}
+	}
+
+
+</style>
+</head>
+<body>
+	
+	<div id="wrapper">
+		<header>
+			<h2>반응형 웹</h2>
+			<nav>
+				<ul>
+					<li>menu1</li>
+					<li>menu2</li>
+					<li>menu3</li>
+					<li>menu4</li>
+					<li>menu5</li>				
+				</ul>
+			</nav>
+		</header>
+	</div>
+
+	<div class="content">
+		<h2>반응형 웹은 미디어 쿼리를 사용하여 스타일링합니다.</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		   Maecenas sed diam eget risus varius blandit sit amet non 
+		   magna. Lorem ipsum dolor sit amet, consectetur adipiscing 
+		   elit. Praesent commodo cursus magna, vel scelerisque nisl 
+		   consectetur et. Cras mattis consectetur purus sit amet 
+		   fermentum. Duis mollis, est non commodo luctus, nisi erat 
+		   porttitor ligula, eget lacinia odio sem nec elit. Aenean 
+		   lacinia bibendum nulla sed consectetur.</p>
+	</div>
+	
+	<footer>
+		<h3>designed by ljh</h3>
+	</footer>
+</body>
+</html>
+
+

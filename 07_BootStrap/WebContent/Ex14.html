@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link type="text/css" href="boot/bootstrap.css" rel="stylesheet">
+
+<!-- 부가적인 테마 -->
+<link type="text/css" href="boot/bootstrap-theme.css" rel="stylesheet">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="boot/bootstrap.js"></script>
+<style type="text/css">
+
+	 .w30{
+        width: 30%;
+        border:1px solid red;
+      }
+      
+	}
+	
+</style>
+</head>
+<body>
+	
+	<h3> 모달이나 경고같은 콘텐츠를 없애기 위해서 닫기 아이콘을 생성하는 방법으로는 
+	     button태그 안에 span태그를 주고 &times;을 넣은 후에 class명으로 close이름을 부여한다.</h3>
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h3>드랍다운 메뉴에서 사용하는 캐럿버튼</h3>
+    <span class="caret"></span><br>
+    <button class="btn btn-danger">드랍다운 메뉴
+      <span class="caret"></span>
+    </button>
+
+    <h3>실제로 동작하는 x버튼 만들기</h3>
+    <div class="alert btn btn-info">이용해주셔서 감사합니다.
+      <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h3>실제로 동작하는 x버튼이 구현되려면 x아이콘을 감싸고 있는 button태그에 
+        data-dismiss="alert"를 추가하고 해당요소를 감싸고 있는 부모요소에는  
+               클래스명을 alert를 추가한다.</h3>
+
+    <h3>간편하게 원하는 요소를 왼쪽, 오른쪽으로 이동하고 싶을 때 사용하는 클래스명 pull-left, 
+        pull-right</h3>
+    <div class="w30 pull-left bg-info">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus temporibus, dolorem sed enim nulla iusto odio quibusdam sit eos autem et adipisci perspiciatis voluptates ducimus odit nesciunt ipsum, voluptatum itaque.
+    </div>     
+    <div class="bg-danger col-xs-3 pull-right">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias dolorem earum a autem, impedit maxime alias nostrum. Placeat sed illum deleniti adipisci excepturi quos eaque, porro, dolore facere velit rem?
+    </div>
+    <div class="clearfix"></div>
+    <div class="bg-warning col-xs-4">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ducimus, eum consequatur quidem natus eveniet totam earum animi excepturi, adipisci, corrupti tempora cum. Itaque suscipit ab unde quia nam harum.
+    </div>
+    <div class="w30 center-block">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur velit dolorum nemo impedit, provident dolor debitis exercitationem explicabo ea dolores recusandae nobis vel saepe reprehenderit, ipsam facilis eligendi alias, possimus animi odio quaerat ratione adipisci. Repudiandae excepturi accusamus ullam impedit.
+    </div>
+</body>
+</html>
+	
