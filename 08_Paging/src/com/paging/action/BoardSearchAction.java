@@ -1,22 +1,22 @@
 package com.paging.action;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.paging.model.BoardDAO;
 import com.paging.model.BoardDTO;
 
-public class BoardListAction implements Action{
-	// action 인터페이스를 상속 받음
+
+
+public class BoardSearchAction implements Action {
+
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-	/*	// DB의 게시글 전체 레코드를 조회하는 컨트롤러
-		BoardDAO dao = new BoardDAO();
-		ArrayList<BoardDTO> list = dao.selectList();
-		// 키로 저장
-		request.setAttribute("List", list);		*/
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		String find_field = request.getParameter("find_field").trim();
+		String find_name =  request.getParameter("find_name").trim();
 		
 		//	페이징 처리
 		int rowsize = 3; // 페이지당 보여질 게시물의 수
@@ -36,15 +36,18 @@ public class BoardListAction implements Action{
 		int startNo = (page * rowsize) - (rowsize - 1);
 		// 해당 페이지에서의 끝 번호
 		int endNo = (page * rowsize);
-
+		System.out.println(page);
+		System.out.println(rowsize);
 		// 해당 페이지의 시작 블럭
 		int startBlock = (((page - 1) / block) * block) + 1;
 		// 해당 페이지의 끝 블럭
 		int endBlock = (((page - 1) / block) * block) + block;
 
 		BoardDAO dao = new BoardDAO();
-		totalRecord = dao.getListCount(); // 전체 게시글의 수를 저장해 줌
-
+		System.out.println(find_field);
+		System.out.println(find_name);
+		totalRecord = dao.getListCountSearch(find_field, find_name); // 전체 게시글의 수를 저장해 줌
+		System.out.println(totalRecord);
 		// 전체 게시글의 수를 한 페이지당 보여질 게시물의 수로 나누어준다.
 		// 이러한 작업을 거치면 전체 페이지가 나온다.
 		// 전체 페이지가 나올 때 나머지가 있으면 무조건 올려주어야 한다.
@@ -54,10 +57,14 @@ public class BoardListAction implements Action{
 		if (endBlock > allPage) {
 			endBlock = allPage;
 		}
+
+		ArrayList<BoardDTO> list = dao.searchBoard(find_field, find_name, page, rowsize);
 		
-		ArrayList<BoardDTO> list = dao.getBoardList(page, rowsize); // 한 페이지에 rowsize 값 만큼 데이터를 받아옴
+		System.out.println(list.get(0).getBoard_regdate());
+		System.out.println(list.get(0).getBoard_pwd());
+		System.out.println(list.get(0).getBoard_hit());
 		
-		// 페이징 처리시 사용했던 모든 값들을 키로 넘겨주자.
+		
 		request.setAttribute("page", page);
 		request.setAttribute("rowsize", rowsize);
 		request.setAttribute("block", block);
@@ -68,8 +75,8 @@ public class BoardListAction implements Action{
 		request.setAttribute("startBlock", startBlock);
 		request.setAttribute("endBlock", endBlock);
 		request.setAttribute("List", list);
-		
-		
+		request.setAttribute("find_field", find_field);
+		request.setAttribute("find_name", find_name);
 	}
 
 }
