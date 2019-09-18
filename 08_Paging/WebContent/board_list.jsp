@@ -11,13 +11,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
+<style>
+td{
+
+}
+</style>
 <body>
 	<div align="center">
 	<hr width="50%" color="red">
 	<h3>MVC2 모델로 BOARD 테이블 전체 리스트</h3>
 	<hr width="50%" color="red">
 	
-	<table class="table table-hover" width="400" cellspacing="0">
+	<table class="table table-hover" width="400" cellspacing="0" style="width:70%">
 		<tr>
 			<th>글 번호</th> <th>글 제목</th>
 			<th>조회수</th> <th>등록일자</th>

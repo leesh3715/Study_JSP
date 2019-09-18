@@ -67,7 +67,25 @@ public class FrontController extends HttpServlet {
     	  action = new BoardSearchAction();
     	  action.execute(request, response);
           viewPage="board_search.jsp";
-      }
+   
+      } else if(command.equals("join.do")){
+    	  viewPage = "board_join.jsp";
+    	  
+      } else if(command.equals("zipcode_find.do")){
+    	  viewPage = "zipcode.jsp";
+      } else if(command.equals("zipcode_ok.do")){
+    	  action = new ZipcodeAction();
+    	  action.execute(request, response);
+    	  viewPage = "zipcode.jsp";
+      } else if(command.equals("join_ok.do")){
+    	  action = new JoinOkAction();
+    	  action.execute(request, response);
+      } else if(command.equals("login.do")){
+    	  viewPage = "login.jsp";
+      } else if(command.equals("login_ok.do")){
+    	  action = new LoginOkAction();
+    	  action.execute(request, response);
+      } 
       
       //페이지 이동
       if(viewPage!=null) {
