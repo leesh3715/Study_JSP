@@ -49,7 +49,6 @@ $(function() {
 		따로 서버에서 받아들일 수 있으므로 서버의 네트워크 부하를 줄여줄 수 있음
 		*/
 		
-		// 중복 체크를 하는데에 있어서 모든 데이터 값들을 받아오는 것은 불필요 하므로, id 값만 비동기 통신으로 받아와서 비교하여 처리 하는 과정인 듯
 		$.ajax({
 			type : "post", // 데이터 전송 방식	
 			url : "idcheck.jsp", // 파일 주소와 경로
@@ -94,9 +93,10 @@ $(function() {
 		<form name="f" method="post" action="<%=request.getContextPath()%>/join_ok.do" onsubmit="return mem_check()"> <!-- 서브밋 버튼을 누르면 mem_check()를 호출  -->
 		<table id="join_t">
 		<tr>
+		
 			<th>회원 아이디</th>
 			<td><input name="member_id" id="member_id" size="14">
-			<input type="button" value="아이디 중복 체크" id="idcheck_btn">
+			<input type="button" value="아이디 중복 체크" id="idcheck_btn" onclick="test()">
 			<br>
 			<%-- 경고문이 출력되는 위치 --%>
 			<span id="idcheck"> </span>
@@ -108,6 +108,7 @@ $(function() {
 		</tr>
 		<tr>
 			<th>비밀번호 확인</th>
+			
 			<td><input type="password" id="member_pass2" name="member_pass2" size="14"></td>
 		</tr>
 		<tr>

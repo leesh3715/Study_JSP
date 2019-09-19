@@ -1,5 +1,10 @@
 ﻿/*member_join.js*/
   /* 기본 회원정보 체크 */
+	function test(){
+		alert("test 입니다.");
+		return false;
+	}
+
 	  function mem_check(){
 	  	if($.trim($("#member_id").val())==""){
 	  		alert("회원아이디를 입력하세요!");

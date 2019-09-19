@@ -64,16 +64,15 @@
 	}; */
 </script>
 </head>
-<body bgcolor="#ffffff" topmargin="0" leftmargin="0"
-	onload="postform.dong.focus()">
+<body bgcolor="#ffffff" topmargin="0" leftmargin="0" onload="postform.dong.focus()">
 	<!-- 바디 부분을 읽고 onload를 실행 -->
 	<form name="postform" method="post"
 		action="<%=request.getContextPath()%>/zipcode_ok.do"
 		onsubmit="return check(this)">
 		<table width="410" height="100" cellspacing="0" align="center">
 			<tr>
-				<td align="center" bgcolor="#999999"><input type="image"
-					src="images/ZipCode_img01.gif" width="413" height="58"></td>
+				<td align="center" bgcolor="#999999">
+				<input type="image" src="images/ZipCode_img01.gif" width="413" height="58"></td>
 			</tr>
 			<tr>
 				<td bgcolor="#f5ffea" align="center"><strong><font

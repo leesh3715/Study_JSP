@@ -77,6 +77,7 @@ public class MemberDAO {
 		
 		return zip;
 	}
+	// 회원 가입 메서드
 	public int insertMember(MemberDTO dto) {
 		int result = 0;
 		try {
@@ -98,5 +99,55 @@ public class MemberDAO {
 		}
 		
 		return result;
+	}
+	
+	// DB상에 아이디와 비밀번호가 있는지 확인하는 메서드
+	public int userCheck(String id, String pwd){
+		int result = 0;
+		try {
+			sql = "select * from jsp_member where member_id = ? and member_state = 1";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				if(rs.getString("member_pwd").equals(pwd)){
+					// 회원인 경우
+					result = 1;
+				} else {
+					// 비밀번호가 틀린 경우
+					result = -1;
+				}
+			}else {
+				// 회원이 아닌경우, 탈퇴한 경우
+				result = -2;
+			}
+			rs.close(); pstmt.close(); //con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result; 
+	}
+	public MemberDTO getMember(String id) {
+		MemberDTO dto = new MemberDTO();
+		try {
+			sql = "select * from jsp_member where member_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				dto.setMember_id(rs.getString("member_id"));
+				dto.setMember_pwd(rs.getString("member_pwd"));
+				dto.setMember_name(rs.getString("member_name"));
+				dto.setMember_nickname(rs.getString("member_nickname"));
+				dto.setMember_zip1(rs.getString("member_zip1"));
+				dto.setMember_zip2(rs.getString("member_zip2"));
+				dto.setMember_addr1(rs.getString("member_addr1"));
+				dto.setMember_addr2(rs.getString("member_addr2"));
+			}
+			rs.close(); pstmt.close(); con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dto;
 	}
 }

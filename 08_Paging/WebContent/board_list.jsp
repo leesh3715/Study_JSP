@@ -18,6 +18,9 @@ td{
 </style>
 <body>
 	<div align="center">
+		<%@ include file="include/header.jsp" %>
+		<div class="clear"></div>
+		
 	<hr width="50%" color="red">
 	<h3>MVC2 모델로 BOARD 테이블 전체 리스트</h3>
 	<hr width="50%" color="red">

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.taglibs.standard.lang.jstl.BooleanLiteral;
+
 import com.paging.action.*;
 
 
@@ -20,7 +22,7 @@ public class FrontController extends HttpServlet {
    
       //getRequestURI() : 현재 프로젝트명과 파일명을 반환하는 메서드.
       // "/프로젝트명/파일명(*.do)"문자열을 반환하는 메서드.
-      
+ 
       String uri = request.getRequestURI(); // "/08_Paging/select.do"
       System.out.println("uri ==> "+uri);
       
@@ -67,7 +69,7 @@ public class FrontController extends HttpServlet {
     	  action = new BoardSearchAction();
     	  action.execute(request, response);
           viewPage="board_search.jsp";
-   
+   ////////////////////////////////// 190918 start
       } else if(command.equals("join.do")){
     	  viewPage = "board_join.jsp";
     	  
@@ -85,7 +87,9 @@ public class FrontController extends HttpServlet {
       } else if(command.equals("login_ok.do")){
     	  action = new LoginOkAction();
     	  action.execute(request, response);
-      } 
+      } else if(command.equals("logout.do")){
+    	  viewPage = "logout.jsp";
+      }
       
       //페이지 이동
       if(viewPage!=null) {
