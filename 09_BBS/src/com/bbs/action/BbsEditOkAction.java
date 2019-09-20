@@ -34,7 +34,7 @@ public class BbsEditOkAction implements Action {
 	
 		if(res > 0) {
 			forward.setRedirect(true); 
-			forward.setPath("select.do");
+			forward.setPath("cont.do?no="+board_no);
 		} else{
 			out.println("<script>");
 			out.println("alert('비밀번호가 다릅니다.')");

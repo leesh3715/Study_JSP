@@ -24,7 +24,9 @@
 			<c:forEach items="${list }" var="dto">
 			<tr>
 			<td>${dto.getBoard_no() }</td>
-			<td><a href="cont.do?no=${dto.getBoard_no() }">${dto.getBoard_title() }</a></td>
+			<td>
+			<c:forEach begin="1" end="${dto.getBoard_indent() }">☞</c:forEach>
+			<a href="cont.do?no=${dto.getBoard_no() }">${dto.getBoard_title() }</a></td>
 			<td>${dto.getBoard_hit() }</td>
 			<td>${dto.getBoard_date().substring(0,10) }</td>
 			<td>${dto.getBoard_group() }</td>

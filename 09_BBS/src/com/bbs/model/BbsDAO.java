@@ -161,4 +161,38 @@ public class BbsDAO {
 		}
 		return result;
 	}
+	
+	//jsp_bbs 게시판의 글의 step을 하나 증가 시키는 메서드
+	public void replyUpdate(int board_group, int board_step){
+		try {
+			sql = "update jsp_bbs set board_step = board_step + 1 where board_group = ? and board_step > ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_group);
+			pstmt.setInt(2, board_step);
+			pstmt.executeUpdate();
+			pstmt.close(); 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	//jsp_bbs 게시판의 답변글을 추가하는 메서드
+	public int replyBoard(BbsDTO dto){
+		int result = 0;
+		try {
+			sql = "insert into jsp_bbs values(bbs_seq.nextval,?,?,?,?,default,sysdate,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getBoard_writer());
+			pstmt.setString(2, dto.getBoard_title());
+			pstmt.setString(3, dto.getBoard_cont());
+			pstmt.setString(4, dto.getBoard_pwd());
+			pstmt.setInt(5, dto.getBoard_group());
+			pstmt.setInt(6, dto.getBoard_step() + 1); // 0은 자체 원래 글을 의미하고, 1을 추가함으로 답변글
+			pstmt.setInt(7, dto.getBoard_indent() + 1);
+			result = pstmt.executeUpdate();
+			pstmt.close(); con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
