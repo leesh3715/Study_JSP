@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	ArrayList<BoardDTO> list = (ArrayList<BoardDTO>) request.getAttribute("LIST");
+	ArrayList<BoardDTO> list = (ArrayList<BoardDTO>) request.getAttribute("List");
 %>
 <!DOCTYPE html>
 <html>
@@ -17,6 +17,8 @@
 <!-- 부가적인 테마 -->
 <link type="text/css" href="boot/bootstrap-theme.css" rel="stylesheet">
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<!-- common CSS -->
+
 <script src="boot/bootstrap.js"></script>
 <script type="text/javascript">
 	/* 사용자 정의 함수  */
@@ -29,7 +31,22 @@
 		window.open("signup.jsp", "회원 가입", "width=500px,height=800px") // 초기  사이즈 셋팅
 	}
 </script>
+<style>
+.navbar-nav {
+        margin: 0 auto;
+        display: table;
+        table-layout: auto;
+        float: none;
+        width: 100%;
+    }
+    .navbar-nav>li {
+        display: table-cell;
+        float: none;
+        text-align: center;
+    }
+</style>
 </head>
+
 <body>
 	<div id="container">
 		<header>
@@ -45,77 +62,75 @@
 
 			</hgroup>
 		</header>
-		<!-- 네비게이션 영역  -->
-		<nav id="nav">
-			<ul>
-				<li><a href="index.jsp">망고 차트</a></li>
-				<li><a href="board.jsp">게시판</a></li>
-				<li><a href="mymusic.jsp">마이 뮤직</a></li>
-				<li><a href="etc.jsp">기 타</a></li>
-			</ul>
-		</nav>
+
+<!-- 네비게이션 영역  -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="text-align: center">
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">홈</a></li>
+        <li><a href="home.jsp">Mango chart</a></li>
+        <li><a href="<%=request.getContextPath()%>/select.do">자유게시판</a></li> 
+        <li class="dropdown">
+          <a href="mymusic.jsp" class="dropdown-toggle" data-toggle="dropdown">마이 페이지<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">3-1번 메뉴</a></li>
+            <li><a href="#">3-2번 메뉴</a></li>
+            <li><a href="#">3-3번 메뉴</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">네비게이션 헤더</li>
+            <li><a href="#">3-4번 메뉴</a></li>
+            <li><a href="#">3-5번 메뉴</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 		<!-- 문서의 절: 여러 개 사용  -->
-		<section id="content">
-			<h2 class="text-warning  bg-success mangoboard ">Mango Music</h2>
-			<article>
-				<!-- 문서의 본문 내용 -->
-				<div align="center">
-					<hr width="500" color="pink">
-					<h3>Mango Music 자유게시판</h3>
+		<div id="contentDiv">
+			<section id="content">
+				<article>
+					<!-- 문서의 본문 내용 -->
+					<div align="center">
+						<hr width="500" color="pink">
+						<h3>Mango Music 자유게시판</h3>
+						<hr width="500" color="pink">
+						<br> <br>
 
-					<hr width="500" color="pink">
-					<br> <br>
-					<table border="1" width="500" cellspacing="0">
-						<tr>
-							<th>글 번호</th>
-							<th>글 제목</th>
-							<th>조회수</th>
-							<th>작성일자</th>
-						</tr>
-						<%
-							if (list.size() != 0) { // 검색된 레코드가 있는 경우
-								// 검색 된 레코드 수 만큼 반복해서 화면에 출력
-								for (int i = 0; i < list.size(); i++) {
-									BoardDTO dto = list.get(i);
-						%>
-						<tr>
-							<td><%=dto.getBoard_no()%></td>
-							<td><a href="board_cont.jsp?no=<%=dto.getBoard_no()%>">
-									<%=dto.getBoard_title()%></a></td>
-							<td><%=dto.getBoard_hit()%></td>
-							<td><%=dto.getBoard_regdate().substring(0, 11)%></td>
-						</tr>
-						<%
-							}
-							} else { // 데이터가 없는 경우
-						%>
-						<tr>
-							<td colspan="4" align="center">
-								<h3>검색된 레코드가 없습니다.</h3>
-							</td>
-						</tr>
-						<%
-							}
-						%>
-					</table>
-					<br>
-					<hr width="50%" color="pink">
-					<br> <br> <input type="button" value="글쓰기"
-						onclick="location.href='board_write.jsp'"> <br> <br>
+						<form method="post"
+							action="<%=request.getContextPath() %>/write_ok.do">
+							<table class="table table-dark" border="1" width="500" cellspacing="0">
+								<tr>
+									<th>작성자</th>
+									<td><input name="writer" size="30"></td>
+								</tr>
+								<tr>
+									<th>글제목</th>
+									<td><input name="title" size="70"></td>
+								</tr>
+								<tr>
+									<th>글내용</th>
+									<td><textarea rows="8" cols="30" name="cont"></textarea></td>
+								</tr>
+								<tr>
+									<th>비밀번호</th>
+									<td><input type="password" size="30" name="pwd"></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center"><input type="submit" value="글쓰기">&nbsp;&nbsp;
+									 <input type="reset" value="취소"></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</article>
+			</section>
+		</div>
 
-					<form method="post" action="<%=request.getContextPath()%>/search">
-						<select name="find_field">
-							<option value="1">제목</option>
-							<option value="2">내용</option>
-							<option value="3">제목+내용</option>
-							<option value="4">작성자</option>
-						</select> <input type="text" name="find_name" size="15"> <input
-							type="submit" value="검색">
-					</form>
-				</div>
-
-			</article>
-		</section>
 		<!-- 문서의 보조 내용(알림, 광고 등등)  -->
 		<aside id="sidebar">
 			<div class="loginDiv">

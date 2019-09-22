@@ -7,7 +7,11 @@ public class BoardDTO {
 	private String board_cont;
 	private String board_pwd;
 	private int board_hit;
-	private String board_regdate;
+	private String board_date;
+	private int board_group;
+	private int board_step;
+	private int board_indent;
+	
 	public int getBoard_no() {
 		return board_no;
 	}
@@ -44,10 +48,30 @@ public class BoardDTO {
 	public void setBoard_hit(int board_hit) {
 		this.board_hit = board_hit;
 	}
-	public String getBoard_regdate() {
-		return board_regdate;
+	public String getBoard_date() {
+		return board_date;
 	}
-	public void setBoard_regdate(String board_regdate) {
-		this.board_regdate = board_regdate;
+	public void setBoard_date(String board_date) {
+		this.board_date = board_date;
 	}
-}
+	public int getBoard_group() {
+		return board_group;
+	}
+	public void setBoard_group(int board_group) {
+		this.board_group = board_group;
+	}
+	public int getBoard_step() {
+		return board_step;
+	}
+	public void setBoard_step(int board_step) {
+		this.board_step = board_step;
+	}
+	public int getBoard_indent() {
+		return board_indent;
+	}
+	public void setBoard_indent(int board_indent) {
+		this.board_indent = board_indent;
+	}
+	
+	
+	}

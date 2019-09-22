@@ -23,6 +23,20 @@ function signUp_window() {
 	window.open("signup.jsp","회원 가입","width=500px,height=800px") // 초기  사이즈 셋팅
 }
 </script>
+<style>
+.navbar-nav {
+        margin: 0 auto;
+        display: table;
+        table-layout: auto;
+        float: none;
+        width: 100%;
+    }
+    .navbar-nav>li {
+        display: table-cell;
+        float: none;
+        text-align: center;
+    }
+</style>
 </head>
 <body>
 	<div id="container">
@@ -38,19 +52,37 @@ function signUp_window() {
 			</hgroup>
 		</header>
 			<!-- 네비게이션 영역  -->
-		<nav id ="nav">
-			<ul>
-				<li> <a href="home.jsp">망고 차트</a></li> 
-				<li> <a href="<%=request.getContextPath()%>/select_board">게시판</a></li> 
-				<li> <a href="mymusic.jsp">마이 뮤직</a></li> 
-				<li> <a href="etc.jsp">기 타</a></li> 
-			</ul>
-		</nav>
-		<!-- 문서의 절: 여러 개 사용  -->
+			
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="text-align: center">
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">홈</a></li>
+        <li><a href="home.jsp">Mango chart</a></li>
+        <li><a href="<%=request.getContextPath()%>/select.do">자유게시판</a></li> 
+        <li class="dropdown">
+          <a href="mymusic.jsp" class="dropdown-toggle" data-toggle="dropdown">마이 페이지<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">3-1번 메뉴</a></li>
+            <li><a href="#">3-2번 메뉴</a></li>
+            <li><a href="#">3-3번 메뉴</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">네비게이션 헤더</li>
+            <li><a href="#">3-4번 메뉴</a></li>
+            <li><a href="#">3-5번 메뉴</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	<!-- 문서의 절: 여러 개 사용  -->
 		<section id="content">
 			<h2>망고 뮤직</h2>
 			<article> <!-- 문서의 본문 내용 -->
-			<h3>"망고 뮤직 타이틀"</h3>
+			<h3>"망고 뮤직 홈"</h3>
 				
 		<div class="picture">
 			<!-- <img src="images/bg2.png" width="680" height="195" alt="오른쪽 탁자에 있는 여왕의 오른쪽 인물이 데카르트"> -->			

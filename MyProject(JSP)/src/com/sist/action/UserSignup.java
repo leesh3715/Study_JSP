@@ -1,4 +1,4 @@
-package com.sist.controller;
+package com.sist.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sist.model.MangoDAO;
 import com.sist.model.UserDTO;
 
-@WebServlet("/usersignup")
+//@WebServlet("/usersignup")
 public class UserSignup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

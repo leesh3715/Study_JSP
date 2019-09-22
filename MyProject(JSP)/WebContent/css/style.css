@@ -1,33 +1,34 @@
 @CHARSET "UTF-8";
 /* 헤더 영역의 div태그 관련 디자인 */
 #container{
-	width:1300px; /* 문서 전체 폭 지정 */
-	height: 2000px;
-	
+	width: 1500px; /* 문서 전체 폭 지정 */
+	height: 1500px;
 	margin: 0 auto; /* 여백 자동으로 */
-	background-color: #fff;
-	border: 1px solid #e8e2ae;
+	border: 1px solid #ffffff;
 }
 /* 바로 태그를 집어 넣어도 가능 함 */
 /* 머릿말 디자인  */
  header{
 	height: 208px;
 	margin-top: 0px;
-	background-image: url("/images/bg.jpg");
-	background-repeat: no-repeat; /* 이미지 반복이 없음 */
-	background-position: top; /* 이미지 위치  */
+	/* background-image: url("/images/bg.jpg");
+	background-repeat: no-repeat; 이미지 반복이 없음
+	background-position: top; 이미지 위치  */
+	background-color: gray;
+	border-radius: em;
 }
 
 /* 헤더영역의 hgroup 태그 관련 디자인  */
 header hgroup{
-	text-align: justify;
+	text-align: center;
 	position: relative;
-	top: 60px; left: 200px;
+	top: 60px; 
+	
 	}
 /* 헤더 영역의 주 제목 디자인  */
 header h1{
-	font-size: 2em; /* 현재 폰트 크기의 2배 크기 설정  */
-	color: #f2cb78;
+	font-size: 3em; /* 현재 폰트 크기의 2배 크기 설정  */
+	color: #ffffff;
 	font-style: bold;
 	text-shadow: 1px 2px 2px #000;
 }
@@ -62,6 +63,18 @@ header h2{
 }
 
 /* 네비게이션 영역 디자인  */
+.navbar-nav {
+        margin: 0 auto;
+        display: table;
+        table-layout: auto;
+        float: none;
+        width: 100%;
+    }
+.navbar-nav>li {
+        display: table-cell;
+        float: none;
+        text-align: center;
+    }
 #nav{
 	font-style: bold;
 	background: #f3d70c;
@@ -99,7 +112,7 @@ header h2{
 	background-color: #fff;
 	padding-top: 5px; /* 상단 안쪽 여백 */
 	padding-left: 10px; /* 상단 왼쪽 여백 */
-	width: 720px; /* section 영역 폭 지정 */
+	width: 1000px; /* section 영역 폭 지정 */
 	float: left; /* 이후의 태그는 오른쪽 정렬 */
 }
 #content article p{
@@ -108,7 +121,7 @@ header h2{
 /* aside 영역 - 보조 내용 디자인 */
 #sidebar{
 	float: right;
-	width: 300px; height: 600px;
+	width: 400px; height: 600px;
 	/* background-color: #e4da7e; */
 	padding-top:  20px;
 	padding-left: 10px;
@@ -122,21 +135,31 @@ header h2{
 }
 /* aside 영역 이미지 디자인 */
 #sidebar img{
+	width: 350px; height:250px;
 	border:1px solid #CCC;
 	opacity:1; /* 불투명도  - 원래 1 값이 원본 이미지의 투명도를 나타냄*/
-	text-align: center;
+	align-content: center;
 }
 /* 이미지에 마우스가 올라갔을 때 디자인 */
 #sidebar img:HOVER {
 	border:1px solid #000;
 	opacity:0.5;
 }
+/* 섹션 디자인 */
+#contentDiv{
+	
+}
+textarea { resize: none;
+width: 80% }
 /* footer영역 디자인  */
 footer{
 	
 	padding: 5px 0; /* 상단,하단이 5px 좌우가 0 /// 5px 0 5px 0*/
-	clear:both;
-	background-color: #997000;
+	clear: both;
+	background-color: gray;
 	color:#fff;
 	text-align: center;
+}
+.footerDiv{
+	margin-top: 1200px;
 }

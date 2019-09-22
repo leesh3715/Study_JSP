@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
 public class MangoDAO {
 
 		Connection con = null; // DB와 연결 하는 객체
@@ -46,21 +47,20 @@ public class MangoDAO {
 			} else {
 				result = -1;
 			}
-
+			pstmt.close(); con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 	public ArrayList<BoardDTO> selectBoard(){
-		System.out.println("게시판 조회 메서드 실행");
+		System.out.println(3333);
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 		try {
-			sql ="select * from mango_board order by board_no desc";
+			sql = "select * from jsp_bbs order by board_group desc, board_step";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			while(rs.next()) { // 있으면 true 없으면 false
-				// 테이블에서 하나의 레코드를 가져 와서 DTO 객체에 저장
+			while(rs.next()){
 				BoardDTO dto = new BoardDTO();
 				dto.setBoard_no(rs.getInt("board_no"));
 				dto.setBoard_writer(rs.getString("board_writer"));
@@ -68,16 +68,73 @@ public class MangoDAO {
 				dto.setBoard_cont(rs.getString("board_cont"));
 				dto.setBoard_pwd(rs.getString("board_pwd"));
 				dto.setBoard_hit(rs.getInt("board_hit"));
-				dto.setBoard_regdate(rs.getString("board_regdate"));
-				list.add(dto); // DTO에 저장된 데이터를 ArrayList에 원소로 추가
+				dto.setBoard_date(rs.getString("board_date"));
+				dto.setBoard_group(rs.getInt("board_group"));
+				dto.setBoard_step(rs.getInt("board_step"));
+				dto.setBoard_indent(rs.getInt("board_indent"));
+				list.add(dto);
 			}
-			// open 객체 닫기
-			rs.close();
-			pstmt.close();
-			con.close();
+			rs.close(); pstmt.close(); con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	public int insertBoard(BoardDTO dto) {
+		int result = 0;
+		
+		try {
+		sql="insert into jsp_bbs values(bbs_seq.nextval,?,?,?,?,default,sysdate,bbs_seq.currval,0,0)";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, dto.getBoard_writer());
+		pstmt.setString(2, dto.getBoard_title());
+		pstmt.setString(3, dto.getBoard_cont());
+		pstmt.setString(4, dto.getBoard_pwd());
+		result = pstmt.executeUpdate();
+		
+		pstmt.close(); con.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+		return result;
+	}
+	// 조회수 증가 메서드
+	public void boardHit(int board_no) {
+		try {
+			sql = "update jsp_bbs set board_hit = board_hit + 1 where board_no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_no);
+			pstmt.executeUpdate();
+			pstmt.close(); 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	// 상세 내역 조회 메서드
+	public BoardDTO selectCont(int board_no) {
+		BoardDTO dto = new BoardDTO();
+		try {
+			sql = "select * from jsp_bbs where board_no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				dto.setBoard_no(rs.getInt("board_no"));
+				dto.setBoard_writer(rs.getString("board_writer"));
+				dto.setBoard_title(rs.getString("board_title"));
+				dto.setBoard_cont(rs.getString("board_cont"));
+				dto.setBoard_pwd(rs.getString("board_pwd"));
+				dto.setBoard_hit(rs.getInt("board_hit"));
+				dto.setBoard_date(rs.getString("board_date"));
+				dto.setBoard_group(rs.getInt("board_group"));
+				dto.setBoard_step(rs.getInt("board_step"));
+				dto.setBoard_indent(rs.getInt("board_indent"));
+			}
+			rs.close(); pstmt.close(); con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dto;
 	}
 }
